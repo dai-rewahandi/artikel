@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+import Layouts from "../../layouts/Layouts.astro";
+import { render } from "astro:content";
+
+export async function getStaticPaths() {
+    const post = await getCollection('blog');
+    return post.map((i) => ({
+        params: { slug: i.id },
+        props: { post: i },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layouts>
+    <table>
+        <tr>
+            <td>title</td>
+            <td>{post.data.title}</td>
+        </tr>
+        <tr>
+            <td>date</td>
+            <td>{post.data.date}</td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>{post.data.description}</td>
+        </tr>
+        <tr>
+            <td>tags</td>
+            <td>{post.data.tags.join(', ')}</td>
+        </tr>
+    </table>
+    <Content />
+</Layouts>

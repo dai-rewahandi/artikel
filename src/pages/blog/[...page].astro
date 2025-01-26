@@ -1,0 +1,18 @@
+---
+import { getCollection } from 'astro:content';
+import Layouts from '../../layouts/Layouts.astro';
+import type { PaginateFunction } from 'astro';
+
+export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
+  const post = await getCollection('blog');
+  return paginate(post, { pageSize: 2 });
+}
+
+const { page } = Astro.props;
+---
+
+<Layouts>
+  <ul>
+    { page.data.map((i) => <a href=`/blog/${i.id}`>{i.data.title}</a> ) }
+  </ul>
+</Layouts>
