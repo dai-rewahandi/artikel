@@ -12,8 +12,8 @@ const isNext = next ? true : false;
       <li><a href='/blog'>Blog</a></li>
     </ul>
     <div class='pagiante'>
-      <a href={prev} style=`display: ${isPrev ? 'block' : 'none'}`>←</a>
-      <a href={next} style=`display: ${isNext ? 'block' : 'none'}`>→</a>
+      <a href={prev} style=`display: ${isPrev ? 'flex' : 'none'}` class="bg-gray-400/20 rounded-md w-6 h-6  items-center justify-center">←</a>
+      <a href={next} style=`display: ${isNext ? 'flex' : 'none'}` class="bg-gray-400/20  rounded-md w-6 h-6  items-center justify-center">→</a>
     </div>
   </nav>
 </header>

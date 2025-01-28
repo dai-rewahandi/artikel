@@ -14,12 +14,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-
-// date format
 const date = post.data.date.toISOString().split('T')[0];
-
-// tags
-const tags = post.data.tags;
 ---
 
 <Layouts
