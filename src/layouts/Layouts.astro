@@ -2,6 +2,16 @@
 import { SEO } from 'astro-seo';
 
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  desc?: string;
+  ogImage?: string;
+  keywords?: string;
+}
+
+const { title, desc, ogImage, keywords } = Astro.props;
 ---
 
 <!doctype html>
@@ -11,20 +21,24 @@ import Header from '../components/Header.astro';
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
 
     <SEO
-      title=''
-      description=''
+      title={title ? 'Daily - ' + title : 'Daily'}
+      description={desc ? desc : 'Blog Daily yang tidak daily daily amat.'}
       canonical={Astro.url}
-      openGraph={{ basic: { title: '', image: '', url: '', type: 'website' } }}
-      twitter={{ creator: '@', card: 'summary_large_image', site: '@', title: '' }}
-      extend={{ link: [{ rel: 'icon', href: '/favicon.ico' }], meta: [{ name: '', content: '' }] }}
-      titleDefault=''
+      openGraph={{ basic: { title: `${title ? 'Daily - ' + title : 'Daily'}`, image: `${ogImage ? ogImage : 'og-image.png'}`, url: Astro.url, type: 'website' } }}
+      twitter={{
+        creator: '@dai.rewahandi',
+        card: 'summary_large_image',
+        site: '@dai.rewahandi.or.id',
+        title: `${title ? 'Daily - ' + title : 'Daily'}`,
+        image: `${ogImage ? ogImage : 'og-image.png'}`
+      }}
+      extend={{ link: [{ rel: 'icon', href: '/favicon.ico' }], meta: [{ name: 'publisher', content: '@dai.rewahandi'}, { name: 'keywords', content: `${keywords}`}] }}
     />
-
-    <title>Document</title>
   </head>
   <body>
     <Header />
     <slot />
+    <Footer />
   </body>
 </html>
 

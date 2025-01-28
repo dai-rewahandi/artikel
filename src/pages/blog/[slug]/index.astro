@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import Layouts from "../../layouts/Layouts.astro";
+import Layouts from "./../../../layouts/Layouts.astro";
 import { render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -15,7 +15,7 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Layouts>
+<Layouts title={post.data.title} desc={post.data.description} ogImage={Astro.url + '/og-image.png'} keywords={post.data.tags.join(', ')}>
     <table>
         <tr>
             <td>title</td>
