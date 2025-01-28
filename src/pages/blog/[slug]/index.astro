@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Layouts from './../../../layouts/Layouts.astro';
 import { render } from 'astro:content';
 import { author, readTime } from '../../../lib/utils';
+import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
   const post = await getCollection('blog');
@@ -22,6 +23,18 @@ const date = post.data.date.toISOString().split('T')[0];
   desc={post.data.description}
   ogImage={Astro.url + '/og-image.png'}
   keywords={post.data.tags.join(', ')}>
+  { post.data.cover && (
+    <Image
+    src={post.data.cover}
+    alt={post.data.title}
+    style={{
+      borderRadius: '1em',
+      width: '100%',
+      outline: '2px solid rgba(22, 20, 20, 0.308)',
+      border: '#ffffff 4px solid',
+    }}
+    />
+  )}
   <span class='bg-indigo-800 lowercase px-1 text-xs rounded-sm inline pb-[3px]'>
     <a class='text-slate-200' href={'/tags/' + post.data.tags}>
       {post.data.tags}
