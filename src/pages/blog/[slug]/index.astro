@@ -23,30 +23,36 @@ const date = post.data.date.toISOString().split('T')[0];
   desc={post.data.description}
   ogImage={Astro.url + '/og-image.png'}
   keywords={post.data.tags.join(', ')}>
-  { post.data.cover && (
-    <Image
-    src={post.data.cover}
-    alt={post.data.title}
-    style={{
-      borderRadius: '1em',
-      width: '100%',
-      outline: '2px solid rgba(22, 20, 20, 0.308)',
-      border: '#ffffff 4px solid',
-    }}
-    />
-  )}
+  {
+    post.data.cover && (
+      <Image
+        src={post.data.cover}
+        alt={post.data.title}
+        style={{
+          borderRadius: '1em',
+          width: '100%',
+          outline: '2px solid rgba(22, 20, 20, 0.308)',
+          border: '#ffffff 4px solid',
+        }}
+      />
+    )
+  }
   <span class='bg-indigo-800 lowercase px-1 text-xs rounded-sm inline pb-[3px]'>
-    <a class='text-slate-200' href={'/tags/' + post.data.tags}>
+    <a class='text-slate-100' href={'/tags/' + post.data.tags}>
       {post.data.tags}
     </a>
   </span>
   <h1 class='text-2xl font-semibold mt-0'>{post.data.title}</h1>
-  <span class='flex gap-2 items-center'
-    ><i class='fa-duotone fa-solid fa-clock'></i>{date}
-    <i class='fa-duotone fa-solid fa-user-tie-hair'></i>
-    {author.name}
-    <i class='fa-duotone fa-solid fa-book-open-cover'></i>
-    {readTime(post.body ? post.body.toString() : '')} minute read
+  <span class='flex gap-2 items-center'>
+    <sub>
+      <i class='fa-duotone fa-solid fa-clock'></i>{date}
+    </sub>
+    <sub>
+      <i class='fa-duotone fa-solid fa-user-tie-hair'></i>{author.name}
+    </sub>
+    <sub>
+      <i class='fa-duotone fa-solid fa-book-open-cover'></i>{readTime(post.body ? post.body.toString() : '')} minute read
+    </sub>
   </span>
   <div class='post'>
     <Content />
@@ -59,7 +65,15 @@ const date = post.data.date.toISOString().split('T')[0];
       width: 100%;
       outline: 2px solid rgba(22, 20, 20, 0.308);
       border: #ffffff 4px solid;
-      border-radius: 1rem;
+      border-radius: 1.5rem;
+    }
+
+  }
+  span {
+    sub {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
   }
 </style>

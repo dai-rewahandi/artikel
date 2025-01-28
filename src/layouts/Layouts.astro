@@ -3,6 +3,7 @@ import { SEO } from 'astro-seo';
 
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { author } from './../lib/utils'
 
 interface Props {
   title?: string;
@@ -23,7 +24,6 @@ const { title, desc, ogImage, keywords, prev, next } = Astro.props;
     <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
     <link href='https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap' rel='stylesheet' />
 
-    <!-- fontawesome -->
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/aquawolf04/font-awesome-pro@5cd1511/css/all.css' />
 
     <meta charset='UTF-8' />
@@ -31,7 +31,7 @@ const { title, desc, ogImage, keywords, prev, next } = Astro.props;
 
     <SEO
       title={title ? 'Daily - ' + title : 'Daily'}
-      description={desc ? desc : 'Blog Daily yang tidak daily daily amat.'}
+      description={desc ? desc : author.desc}
       canonical={Astro.url}
       openGraph={{
         basic: {
