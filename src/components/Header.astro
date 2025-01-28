@@ -5,12 +5,11 @@ const isPrev = prev ? true : false;
 const isNext = next ? true : false;
 ---
 
-<header>
-  <nav>
-    <ul>
-      <li><a href='/'>Home</a></li>
+<header class="">
+  <nav class="flex justify-between items-center">
+    <ul class="flex gap-3 m-0 items-baseline p-0">
+      <li><a class="font-bold text-2xl" href='/'>Daily</a></li>
       <li><a href='/blog'>Blog</a></li>
-      <li><a href='/asd'>error test</a></li>
     </ul>
     <div class='pagiante'>
       <a href={prev} style=`display: ${isPrev ? 'block' : 'none'}`>←</a>
@@ -18,3 +17,9 @@ const isNext = next ? true : false;
     </div>
   </nav>
 </header>
+
+<style>
+  li {
+    @apply list-none p-0
+  }
+</style>

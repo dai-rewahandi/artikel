@@ -1,14 +1,15 @@
 ---
-import { getCollection } from "astro:content";
-import Layouts from "./../../../layouts/Layouts.astro";
-import { render } from "astro:content";
+import { getCollection } from 'astro:content';
+import Layouts from './../../../layouts/Layouts.astro';
+import { render } from 'astro:content';
+import { author, readTime } from '../../../lib/utils';
 
 export async function getStaticPaths() {
-    const post = await getCollection('blog');
-    return post.map((i) => ({
-        params: { slug: i.id },
-        props: { post: i },
-    }));
+  const post = await getCollection('blog');
+  return post.map((i) => ({
+    params: { slug: i.id },
+    props: { post: i },
+  }));
 }
 
 const { post } = Astro.props;
@@ -18,27 +19,39 @@ const { Content } = await render(post);
 const date = post.data.date.toISOString().split('T')[0];
 
 // tags
-const tags = post.data.tags
+const tags = post.data.tags;
 ---
 
-<Layouts title={post.data.title} desc={post.data.description} ogImage={Astro.url + '/og-image.png'} keywords={post.data.tags.join(', ')}>
-    <table>
-        <tr>
-            <td>title</td>
-            <td>{post.data.title}</td>
-        </tr>
-        <tr>
-            <td>date</td>
-            <td>{date}</td>
-        </tr>
-        <tr>
-            <td>description</td>
-            <td>{post.data.description}</td>
-        </tr>
-        <tr>
-            <td>tags</td>
-            <td>{ tags.map((i) => <a style="margin-right: .4em;" href={`/tags/${i}`}>{i}</a>) }</td>
-        </tr>
-    </table>
+<Layouts
+  title={post.data.title}
+  desc={post.data.description}
+  ogImage={Astro.url + '/og-image.png'}
+  keywords={post.data.tags.join(', ')}>
+  <span class='bg-indigo-800 lowercase px-1 text-xs rounded-sm inline pb-[3px]'>
+    <a class='text-slate-200' href={'/tags/' + post.data.tags}>
+      {post.data.tags}
+    </a>
+  </span>
+  <h1 class='text-2xl font-semibold mt-0'>{post.data.title}</h1>
+  <span class='flex gap-2 items-center'
+    ><i class='fa-duotone fa-solid fa-clock'></i>{date}
+    <i class='fa-duotone fa-solid fa-user-tie-hair'></i>
+    {author.name}
+    <i class='fa-duotone fa-solid fa-book-open-cover'></i>
+    {readTime(post.body ? post.body.toString() : '')} minute read
+  </span>
+  <div class='post'>
     <Content />
+  </div>
 </Layouts>
+
+<style is:global lang='scss'>
+  .post {
+    img {
+      width: 100%;
+      outline: 2px solid rgba(22, 20, 20, 0.308);
+      border: #ffffff 4px solid;
+      border-radius: 1rem;
+    }
+  }
+</style>

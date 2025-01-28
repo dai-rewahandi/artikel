@@ -19,6 +19,13 @@ const { title, desc, ogImage, keywords, prev, next } = Astro.props;
 <!doctype html>
 <html lang='en'>
   <head>
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link href='https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap' rel='stylesheet' />
+
+    <!-- fontawesome -->
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/aquawolf04/font-awesome-pro@5cd1511/css/all.css' />
+
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
 
@@ -26,28 +33,45 @@ const { title, desc, ogImage, keywords, prev, next } = Astro.props;
       title={title ? 'Daily - ' + title : 'Daily'}
       description={desc ? desc : 'Blog Daily yang tidak daily daily amat.'}
       canonical={Astro.url}
-      openGraph={{ basic: { title: `${title ? 'Daily - ' + title : 'Daily'}`, image: `${ogImage ? ogImage : 'og-image.png'}`, url: Astro.url, type: 'website' } }}
+      openGraph={{
+        basic: {
+          title: `${title ? 'Daily - ' + title : 'Daily'}`,
+          image: `${ogImage ? ogImage : 'og-image.png'}`,
+          url: Astro.url,
+          type: 'website',
+        },
+      }}
       twitter={{
         creator: '@dai.rewahandi',
         card: 'summary_large_image',
         site: '@dai.rewahandi.or.id',
         title: `${title ? 'Daily - ' + title : 'Daily'}`,
-        image: `${ogImage ? ogImage : 'og-image.png'}`
+        image: `${ogImage ? ogImage : 'og-image.png'}`,
       }}
-      extend={{ link: [{ rel: 'icon', href: '/favicon.ico' }], meta: [{ name: 'publisher', content: '@dai.rewahandi'}, { name: 'keywords', content: `${keywords}`}] }}
+      extend={{
+        link: [{ rel: 'icon', href: '/favicon.ico' }],
+        meta: [
+          { name: 'publisher', content: '@dai.rewahandi' },
+          { name: 'keywords', content: `${keywords}` },
+        ],
+      }}
     />
   </head>
-  <body>
-    <Header {prev} {next}/>
-    <slot />
-    <Footer />
+  <body class='min-h-screen w-screen flex flex-col items-center font-outfit'>
+    <main class='prose w-10/12'>
+      <Header {prev} {next} />
+      <slot />
+      <Footer />
+    </main>
   </body>
 </html>
 
-<style>
-  * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+<style is:global>
+  .prose a {
+    @apply no-underline;
+  }
+  .prose p {
+    @apply leading-relaxed;
+    font-size: 1.1rem;
   }
 </style>
