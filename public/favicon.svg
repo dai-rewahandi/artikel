@@ -1,9 +1,75 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
-    <path d="M50.4 78.5a75.1 75.1 0 0 0-28.5 6.9l24.2-65.7c.7-2 1.9-3.2 3.4-3.2h29c1.5 0 2.7 1.2 3.4 3.2l24.2 65.7s-11.6-7-28.5-7L67 45.5c-.4-1.7-1.6-2.8-2.9-2.8-1.3 0-2.5 1.1-2.9 2.7L50.4 78.5Zm-1.1 28.2Zm-4.2-20.2c-2 6.6-.6 15.8 4.2 20.2a17.5 17.5 0 0 1 .2-.7 5.5 5.5 0 0 1 5.7-4.5c2.8.1 4.3 1.5 4.7 4.7.2 1.1.2 2.3.2 3.5v.4c0 2.7.7 5.2 2.2 7.4a13 13 0 0 0 5.7 4.9v-.3l-.2-.3c-1.8-5.6-.5-9.5 4.4-12.8l1.5-1a73 73 0 0 0 3.2-2.2 16 16 0 0 0 6.8-11.4c.3-2 .1-4-.6-6l-.8.6-1.6 1a37 37 0 0 1-22.4 2.7c-5-.7-9.7-2-13.2-6.2Z" />
-    <style>
-        path { fill: #000; }
-        @media (prefers-color-scheme: dark) {
-            path { fill: #FFF; }
-        }
-    </style>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="favicon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="1.0800781"
+     inkscape:cx="255.53707"
+     inkscape:cy="256"
+     inkscape:window-width="1366"
+     inkscape:window-height="745"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <rect
+       x="56.477396"
+       y="131.47197"
+       width="44.904158"
+       height="76.846293"
+       id="rect2" />
+    <rect
+       x="56.477396"
+       y="131.47197"
+       width="44.904158"
+       height="76.846293"
+       id="rect3" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#0c0cc2;fill-opacity:1;stroke-width:1.20144"
+       id="rect1"
+       width="309.23691"
+       height="309.23691"
+       x="101.38155"
+       y="101.38155" />
+    <text
+       xml:space="preserve"
+       id="text1"
+       style="text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect2);fill:#ffffff;fill-opacity:1;-inkscape-font-specification:'Times New Roman, Bold Italic';font-family:'Times New Roman';font-weight:bold;font-style:italic;font-stretch:normal;font-variant:normal;font-size:12px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+       transform="matrix(33.658065,0,0,33.658065,-1756.37,-4448.1664)"><tspan
+         x="56.476562"
+         y="142.07271"
+         id="tspan1">d</tspan></text>
+    <path
+       id="text3"
+       style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:12px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;white-space:pre;shape-inside:url(#rect3);fill:#0c0cc2;fill-opacity:1"
+       d="M 62.669928 133.94578 L 60.742165 134.30318 L 60.683615 134.5317 C 60.765646 134.51998 60.834 134.51411 60.888687 134.51411 C 61.005875 134.51411 61.09958 134.54734 61.169893 134.61375 C 61.240205 134.68015 61.275389 134.76024 61.275389 134.85399 C 61.275389 134.93305 61.261657 135.03853 61.234653 135.1696 L 62.66604 135.1696 L 63.021464 133.94578 L 62.669928 133.94578 z M 62.66604 135.1696 L 61.117203 140.50242 C 60.996109 140.91257 60.935574 141.16058 60.935574 141.24651 C 60.935574 141.28948 60.951153 141.32662 60.982403 141.35787 C 61.013653 141.38912 61.046882 141.40476 61.082038 141.40476 C 61.148444 141.40476 61.224616 141.37153 61.310554 141.30512 C 61.455085 141.19575 61.630885 140.98873 61.837916 140.68404 L 62.04885 140.79534 C 61.498069 141.75628 60.8926 142.23677 60.232444 142.23677 C 59.998069 142.23677 59.816405 142.17623 59.687498 142.05514 C 59.562498 141.93014 59.500009 141.77193 59.500009 141.58053 C 59.500009 141.39693 59.550771 141.13519 59.652333 140.79534 L 59.828101 140.19771 C 59.33982 141.06099 58.916015 141.63518 58.55664 141.92034 C 58.283203 142.13128 58.017606 142.23677 57.759794 142.23677 C 57.466825 142.23677 57.218762 142.11765 57.015637 141.87937 C 56.816418 141.64109 56.716791 141.2934 56.716791 140.83637 C 56.716791 140.25434 56.84568 139.68014 57.103492 139.11374 C 57.361305 138.54733 57.658175 138.07466 57.994113 137.69575 C 58.333956 137.31685 58.656237 137.04734 58.960924 136.88719 C 59.269518 136.72312 59.572252 136.64109 59.869127 136.64109 C 60.021471 136.64109 60.156224 136.6723 60.273412 136.7348 C 60.394505 136.7973 60.531271 136.91452 60.683615 137.0864 L 61.117203 135.62739 C 61.169305 135.44986 61.208289 135.29756 61.234653 135.1696 L 55.194821 135.1696 L 55.194821 144.35725 L 64.382463 144.35725 L 64.382463 135.1696 L 62.66604 135.1696 z M 59.974623 136.97504 C 59.849623 136.97504 59.71487 137.03949 59.570339 137.16839 C 59.292995 137.41839 59.001931 137.92234 58.697243 138.68015 C 58.396462 139.43406 58.246072 140.06879 58.246072 140.58441 C 58.246072 140.77191 58.279301 140.91063 58.345707 141.00047 C 58.412113 141.09032 58.486331 141.13522 58.568362 141.13522 C 58.705081 141.13522 58.841788 141.07273 58.978507 140.94773 C 59.310538 140.65085 59.636728 140.14104 59.957041 139.41839 C 60.281259 138.69182 60.443377 138.1059 60.443377 137.66059 C 60.443377 137.42231 60.396466 137.24852 60.302716 137.13915 C 60.208966 137.02977 60.099623 136.97504 59.974623 136.97504 z "
+       transform="matrix(33.658065,0,0,33.658065,-1756.37,-4448.1664)" />
+  </g>
 </svg>

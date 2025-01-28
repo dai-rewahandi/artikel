@@ -49,7 +49,7 @@ const { title, desc, ogImage, keywords, prev, next } = Astro.props;
         image: `${ogImage ? ogImage : 'og-image.png'}`,
       }}
       extend={{
-        link: [{ rel: 'icon', href: '/favicon.ico' }],
+        link: [{ rel: 'icon', href: '/favicon.svg' }],
         meta: [
           { name: 'publisher', content: '@dai.rewahandi' },
           { name: 'keywords', content: `${keywords}` },
