@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import Layouts from '../../layouts/Layouts.astro';
+
+export async function getStaticPaths() {
+  const tags = await getCollection('blog');
+
+  const uniqueTags = [...new Set(tags.map((i: any) => i.data.tags).flat())];
+  return uniqueTags.map((tag) => {
+    const filteredTag = tags.filter((p: any) => p.data.tags.includes(tag));
+    return {
+      params: { tag },
+      props: { post: filteredTag },
+    };
+  });
+}
+
+const { tag } = Astro.params;
+const { post } = Astro.props;
+---
+
+<Layouts>
+  <ul>
+    {
+      post.map((post) => (
+        <li>
+          <a href={'/blog/' + post.id}>{post.data.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</Layouts>

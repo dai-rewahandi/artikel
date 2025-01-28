@@ -13,6 +13,12 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+// date format
+const date = post.data.date.toISOString().split('T')[0];
+
+// tags
+const tags = post.data.tags
 ---
 
 <Layouts title={post.data.title} desc={post.data.description} ogImage={Astro.url + '/og-image.png'} keywords={post.data.tags.join(', ')}>
@@ -23,7 +29,7 @@ const { Content } = await render(post);
         </tr>
         <tr>
             <td>date</td>
-            <td>{post.data.date}</td>
+            <td>{date}</td>
         </tr>
         <tr>
             <td>description</td>
@@ -31,7 +37,7 @@ const { Content } = await render(post);
         </tr>
         <tr>
             <td>tags</td>
-            <td>{post.data.tags.join(', ')}</td>
+            <td>{ tags.map((i) => <a style="margin-right: .4em;" href={`/tags/${i}`}>{i}</a>) }</td>
         </tr>
     </table>
     <Content />

@@ -1,9 +1,20 @@
+---
+const { prev, next } = Astro.props;
+
+const isPrev = prev ? true : false;
+const isNext = next ? true : false;
+---
+
 <header>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="/asd">error test</a></li>
-        </ul>
-    </nav>
+  <nav>
+    <ul>
+      <li><a href='/'>Home</a></li>
+      <li><a href='/blog'>Blog</a></li>
+      <li><a href='/asd'>error test</a></li>
+    </ul>
+    <div class='pagiante'>
+      <a href={prev} style=`display: ${isPrev ? 'block' : 'none'}`>←</a>
+      <a href={next} style=`display: ${isNext ? 'block' : 'none'}`>→</a>
+    </div>
+  </nav>
 </header>

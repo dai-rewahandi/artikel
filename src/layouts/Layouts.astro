@@ -9,9 +9,11 @@ interface Props {
   desc?: string;
   ogImage?: string;
   keywords?: string;
+  prev?: string;
+  next?: string;
 }
 
-const { title, desc, ogImage, keywords } = Astro.props;
+const { title, desc, ogImage, keywords, prev, next } = Astro.props;
 ---
 
 <!doctype html>
@@ -36,7 +38,7 @@ const { title, desc, ogImage, keywords } = Astro.props;
     />
   </head>
   <body>
-    <Header />
+    <Header {prev} {next}/>
     <slot />
     <Footer />
   </body>
