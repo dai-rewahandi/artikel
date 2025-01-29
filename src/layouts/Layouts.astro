@@ -24,22 +24,20 @@ const { title, desc, ogImage, keywords, prev, next, pageNow } = Astro.props;
     <link rel='preconnect' href='https://fonts.googleapis.com' />
     <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
     <link href='https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap' rel='stylesheet' />
-
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/aquawolf04/font-awesome-pro@5cd1511/css/all.css' />
 
-    <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-
-
+    <meta property="og:image:alt" content={title ? title : 'Daily'} />
     <SEO
       title={title ? 'Daily - ' + title : 'Daily'}
       description={desc ? desc : author.desc}
       canonical={Astro.site?.origin + (pageNow ? '/' + pageNow : '')}
+      charset='UTF-8'
       openGraph={{
         basic: {
           title: `${title ? 'Daily - ' + title : 'Daily'}`,
           image: `${ogImage ? ogImage : 'og-image.png'}`,
           type: 'website',
+          url: `${Astro.site?.origin + (pageNow ? '/' + pageNow : '')}`,
         },
       }}
       twitter={{
@@ -54,6 +52,7 @@ const { title, desc, ogImage, keywords, prev, next, pageNow } = Astro.props;
         meta: [
           { name: 'publisher', content: '@dai.rewahandi' },
           { name: 'keywords', content: `${keywords}` },
+          { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
         ],
       }}
     />
