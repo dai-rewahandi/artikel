@@ -39,7 +39,6 @@ const { title, desc, ogImage, keywords, prev, next, pageNow } = Astro.props;
         basic: {
           title: `${title ? 'Daily - ' + title : 'Daily'}`,
           image: `${ogImage ? ogImage : 'og-image.png'}`,
-          url: Astro.site?.origin,
           type: 'website',
         },
       }}
