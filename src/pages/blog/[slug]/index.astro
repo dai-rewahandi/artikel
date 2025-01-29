@@ -4,6 +4,8 @@ import Layouts from './../../../layouts/Layouts.astro';
 import { render } from 'astro:content';
 import { author, readTime } from '../../../lib/utils';
 import { Image } from 'astro:assets';
+import SosialShare from '../../../components/SosialShare.astro';
+import BackToTop from '../../../components/BackToTop.astro';
 
 export async function getStaticPaths() {
   const post = await getCollection('blog');
@@ -57,6 +59,8 @@ const date = post.data.date.toISOString().split('T')[0];
   <div class='post'>
     <Content />
   </div>
+  <SosialShare />
+  <BackToTop />
 </Layouts>
 
 <style is:global lang='scss'>

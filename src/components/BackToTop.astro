@@ -1,0 +1,23 @@
+---
+
+---
+
+<div class='fixed bottom-4 left-4 bg-indigo-100/40 backdrop-blur-sm px-2 py-1 rounded-md'>
+  <button title="Back to Top" data-scroll-to-top><i class='fa-solid fa-jet-fighter-up'></i></button>
+</div>
+
+<script>
+  const btn = document.querySelector('[data-scroll-to-top]');
+  if (btn) {
+    btn.addEventListener('click', function () {
+      const scrollToTop = () => {
+        const c = document.documentElement.scrollTop || document.body.scrollTop;
+        if (c > 0) {
+          window.requestAnimationFrame(scrollToTop);
+          window.scrollTo(0, c - c / 8);
+        }
+      };
+      scrollToTop();
+    });
+  }
+</script>

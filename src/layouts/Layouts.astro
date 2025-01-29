@@ -67,6 +67,9 @@ const { title, desc, ogImage, keywords, prev, next } = Astro.props;
 </html>
 
 <style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
   .prose a {
     @apply no-underline;
   }
