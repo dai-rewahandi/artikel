@@ -23,7 +23,7 @@ const date = post.data.date.toISOString().split('T')[0];
 <Layouts
   title={post.data.title}
   desc={post.data.description}
-  ogImage={Astro.site?.origin + '/' + post.id + '/' + 'og-image.png'}
+  ogImage={Astro.site?.origin + '/blog/' + post.id + '/' + 'og-image.png'}
   keywords={post.data.tags.join(', ')}
   pageNow={'blog/' + post.id}
 >
