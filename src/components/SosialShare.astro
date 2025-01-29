@@ -11,7 +11,7 @@ const { titleShare, urlShare } = Astro.props;
         <li
           data-share-btn-icon
           data-name={i.name}
-          class='list-none bg-indigo-100/40 backdrop-blur-sm px-2 py-1 rounded-md'>
+          class='list-none bg-indigo-100/40 backdrop-blur-sm px-2 py-1 rounded-md cursor-pointer'>
           <i class={'fab fa-' + i.name} />
         </li>
       ))
@@ -37,27 +37,38 @@ const { titleShare, urlShare } = Astro.props;
   if (share_btn) {
     function sharing(sosial, title, url) {
       if (sosial === 'twitter') {
-        window.location.href =
-          'https://twitter.com/intent/tweet?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(title);
+        // new window location
+        window.open(
+          'https://twitter.com/intent/tweet?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(title),
+          '_blank',
+        );
       } else if (sosial === 'facebook') {
-        window.location.href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+        window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url), '_blank');
       } else if (sosial === 'linkedin') {
-        window.location.href = 'https://www.linkedin.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+        window.open('https://www.linkedin.com/sharer/sharer.php?u=' + encodeURIComponent(url), '_blank');
       } else if (sosial === 'whatsapp') {
-        window.location.href =
-          'https://api.whatsapp.com/send?text=' + encodeURIComponent(title) + ' ' + encodeURIComponent(url);
+        window.open(
+          'https://api.whatsapp.com/send?text=' + encodeURIComponent(title) + ' ' + encodeURIComponent(url),
+          '_blank',
+        );
       } else if (sosial === 'telegram') {
-        window.location.href =
-          'https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(title);
+        window.open(
+          'https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(title),
+          '_blank',
+        );
       } else if (sosial === 'reddit') {
-        window.location.href =
-          'https://www.reddit.com/submit?url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title);
+        window.open(
+          'https://www.reddit.com/submit?url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title),
+          '_blank',
+        );
       } else if (sosial === 'pinterest') {
-        window.location.href =
+        window.open(
           'https://pinterest.com/pin/create/button/?url=' +
-          encodeURIComponent(url) +
-          '&description=' +
-          encodeURIComponent(title);
+            encodeURIComponent(url) +
+            '&description=' +
+            encodeURIComponent(title),
+          '_blank',
+        );
       }
     }
 
@@ -65,7 +76,7 @@ const { titleShare, urlShare } = Astro.props;
       i.addEventListener('click', function () {
         const name = i.getAttribute('data-name');
         console.log(name);
-        sharing(name, titleShare, urlShare);
+        sharing(name, titleShare, window.location.href.toString());
       });
     });
   }

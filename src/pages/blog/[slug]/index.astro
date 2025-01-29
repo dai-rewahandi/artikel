@@ -23,7 +23,7 @@ const date = post.data.date.toISOString().split('T')[0];
 <Layouts
   title={post.data.title}
   desc={post.data.description}
-  ogImage={Astro.url + '/og-image.png'}
+  ogImage={Astro.site?.origin + '/' + post.id + '/' + 'og-image.png'}
   keywords={post.data.tags.join(', ')}>
   {
     post.data.cover && (
@@ -59,7 +59,7 @@ const date = post.data.date.toISOString().split('T')[0];
   <div class='post'>
     <Content />
   </div>
-  <SosialShare titleShare={post.data.title} urlShare={Astro.url} client:load/>
+  <SosialShare titleShare={post.data.title}/>
   <BackToTop />
 </Layouts>
 
