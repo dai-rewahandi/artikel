@@ -1,7 +1,72 @@
 ---
+import { socialShare } from '../lib/utils';
 
+const { titleShare, urlShare } = Astro.props;
 ---
 
-<div class="fixed bottom-4 right-4 bg-indigo-100/40 backdrop-blur-sm px-2 py-1 rounded-md">
-    <button>Share</button>
+<div data-share-box class='fixed bottom-10 right-4 hidden'>
+  <ul>
+    {
+      socialShare.map((i) => (
+        <li
+          data-share-btn-icon
+          data-name={i.name}
+          class='list-none bg-indigo-100/40 backdrop-blur-sm px-2 py-1 rounded-md'>
+          <i class={'fab fa-' + i.name} />
+        </li>
+      ))
+    }
+  </ul>
 </div>
+<div class='fixed bottom-4 right-4 bg-indigo-100/40 backdrop-blur-sm px-2 py-1 rounded-md'>
+  <button data-share-btn>Share</button>
+</div>
+
+<script define:vars={{ titleShare, urlShare }}>
+  const btn = document.querySelector('[data-share-btn]');
+  if (btn) {
+    btn.addEventListener('click', function () {
+      const shareBox = document.querySelector('[data-share-box]');
+      if (shareBox) {
+        shareBox.classList.toggle('hidden');
+      }
+    });
+  }
+
+  const share_btn = document.querySelectorAll('[data-share-btn-icon]');
+  if (share_btn) {
+    function sharing(sosial, title, url) {
+      if (sosial === 'twitter') {
+        window.location.href =
+          'https://twitter.com/intent/tweet?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(title);
+      } else if (sosial === 'facebook') {
+        window.location.href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+      } else if (sosial === 'linkedin') {
+        window.location.href = 'https://www.linkedin.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+      } else if (sosial === 'whatsapp') {
+        window.location.href =
+          'https://api.whatsapp.com/send?text=' + encodeURIComponent(title) + ' ' + encodeURIComponent(url);
+      } else if (sosial === 'telegram') {
+        window.location.href =
+          'https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(title);
+      } else if (sosial === 'reddit') {
+        window.location.href =
+          'https://www.reddit.com/submit?url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title);
+      } else if (sosial === 'pinterest') {
+        window.location.href =
+          'https://pinterest.com/pin/create/button/?url=' +
+          encodeURIComponent(url) +
+          '&description=' +
+          encodeURIComponent(title);
+      }
+    }
+
+    share_btn.forEach((i) => {
+      i.addEventListener('click', function () {
+        const name = i.getAttribute('data-name');
+        console.log(name);
+        sharing(name, titleShare, urlShare);
+      });
+    });
+  }
+</script>

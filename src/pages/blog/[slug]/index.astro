@@ -59,7 +59,7 @@ const date = post.data.date.toISOString().split('T')[0];
   <div class='post'>
     <Content />
   </div>
-  <SosialShare />
+  <SosialShare titleShare={post.data.title} urlShare={Astro.url} client:load/>
   <BackToTop />
 </Layouts>
 
