@@ -7,10 +7,10 @@ import Layouts from '../../layouts/Layouts.astro';
     <form method='POST' id='form' class='flex flex-col w-96'>
       <input type='hidden' name='access_key' value='81a46ea7-6741-4a0d-bfdb-b6b248ea5fd1' />
 
-      <input type='text' name='name' required placeholder='Name' />
+      <input type='text' name='name' required placeholder='Nama' />
       <input type='email' name='email' required placeholder='Email' />
-      <textarea name='message' required placeholder='Message'></textarea>
-      <button type='submit' class='bg-indigo-400 py-2 px-4 rounded-md text-white'>Submit Form</button>
+      <textarea name='message' required placeholder='Pesan'></textarea>
+      <button type='submit' class='bg-indigo-400 py-2 px-4 rounded-md text-white'>Kirim</button>
       <div id='result'></div>
     </form>
   </main>
@@ -36,7 +36,7 @@ import Layouts from '../../layouts/Layouts.astro';
       const object = Object.fromEntries(formData);
       const json = JSON.stringify(object);
 
-      result.innerHTML = 'Please wait...';
+      result.innerHTML = 'Tunggu sebentar...';
 
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -57,7 +57,7 @@ import Layouts from '../../layouts/Layouts.astro';
         })
         .catch((error) => {
           console.log(error);
-          result.innerHTML = 'Something went wrong!';
+          result.innerHTML = 'Ada sesuatu yang salah!';
         })
         .then(function () {
           form.reset();
