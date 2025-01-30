@@ -60,6 +60,7 @@ const { title, desc, ogImage, keywords, prev, next, pageNow } = Astro.props;
   <body class='min-h-screen w-screen flex flex-col items-center font-outfit'>
     <main class='prose w-10/12'>
       <Header {prev} {next} />
+      <div class="text-2xl bg-orange-400 animate-pulse px-4 font-serif text-center">Masaih dalam tahap pengembangan - uderconstruction!</div>
       <slot />
       <Footer />
     </main>
