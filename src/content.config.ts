@@ -1,5 +1,6 @@
 import { glob } from 'astro/loaders';
 import { defineCollection, z } from 'astro:content';
+import { author } from './lib/utils';
 
 const blog = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
@@ -11,6 +12,7 @@ const blog = defineCollection({
       published: z.boolean().default(false),
       cover: image().optional(),
       tags: z.array(z.string()),
+      author: z.string().default('dai').optional(),
     }),
 });
 
