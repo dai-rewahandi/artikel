@@ -2,10 +2,7 @@ import satori from 'satori';
 import fs from 'fs/promises';
 import sharp from 'sharp';
 import type { APIRoute } from 'astro';
-import { getCollection } from 'astro:content';
 import { author } from '../lib/utils';
-
-
 
 export const GET: APIRoute = async function get({ props }) {
   const outfit = await fs.readFile('./public/fonts/Outfit-SemiBold.ttf');

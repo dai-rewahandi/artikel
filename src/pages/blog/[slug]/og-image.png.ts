@@ -3,7 +3,6 @@ import fs from 'fs/promises';
 import sharp from 'sharp';
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
-import { readTime } from '../../../lib/utils';
 
 export async function getStaticPaths() {
   const post = await getCollection('blog');

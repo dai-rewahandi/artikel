@@ -26,7 +26,7 @@ const { title, desc, ogImage, keywords, prev, next, pageNow } = Astro.props;
     <link href='https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap' rel='stylesheet' />
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/aquawolf04/font-awesome-pro@5cd1511/css/all.css' />
 
-    <meta property="og:image:alt" content={title ? title : 'Daily'} />
+    <meta property='og:image:alt' content={title ? title : 'Daily'} />
     <SEO
       title={title ? 'Daily - ' + title : 'Daily'}
       description={desc ? desc : author.desc}
@@ -60,7 +60,7 @@ const { title, desc, ogImage, keywords, prev, next, pageNow } = Astro.props;
   <body class='min-h-screen w-screen flex flex-col items-center font-outfit'>
     <main class='prose w-10/12'>
       <Header {prev} {next} />
-      <div class="text-2xl bg-orange-400 animate-pulse px-4 font-serif text-center">Masaih dalam tahap pengembangan - uderconstruction!</div>
+      <!-- <div class="text-2xl bg-orange-400 animate-pulse px-4 font-serif text-center">Masaih dalam tahap pengembangan - uderconstruction!</div> -->
       <slot />
       <Footer />
     </main>
